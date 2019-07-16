@@ -3,6 +3,7 @@ from store import views
 
 urlpatterns = [
     path('', views.index),
-    path('books/', views.bookss)
+    path('store-books/', views.store),
+
 
 ]
