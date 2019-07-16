@@ -2,6 +2,10 @@ from django.shortcuts import render
 
 
 # Create your views here.
-def storeapp(request):
+def index(request):
 
-    return render(request, "first.html")
+    return render(request, "index.html")
+
+def bookss(request):
+
+    return render(request, "store-books.html")
