@@ -1,0 +1,7 @@
+Greetings,
+
+You just signed up for an account at {{site.name}}. Please click the link below to activate http://{{site.domain}}{% url 'registration_activate' activation_key %}
+
+This link is valid for {{ expiration_days}}
+
+-The BookApp Team
