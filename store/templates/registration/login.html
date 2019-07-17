@@ -1,0 +1,7 @@
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h1> This is my login page</h1>
+    <input type="submit" value="Log in" />
+    <input type="hidden" name="next" value="{{next}}" />
+    </form>

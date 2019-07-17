@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('accounts/', include('registration.backends.default.urls')),
-    path('store/',include("store.urls"), name= "store")
+    path('store/', include("store.urls"), name= "store")
 ]

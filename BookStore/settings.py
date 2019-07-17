@@ -29,19 +29,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'store',
     'registration',
-    'store'
 ]
 
-# This line stops the link to be redirected to profile url
-INCLUDE_REGISTER_URL = True
-ACCOUNT_AUTHENTICATED_REGISTRATION_REDIRECTS=False
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,6 +119,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Registration
-
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/store/'
+
+# This line stops the link to be redirected to profile url
+# INCLUDE_REGISTER_URL = True
+# ACCOUNT_AUTHENTICATED_REGISTRATION_REDIRECTS=True
+
+#Email settings
+
+#EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "appsmadeforu@gmail.com"
+EMAIL_HOST_PASSWORD = "Sofa12215562!"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
