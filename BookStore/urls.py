@@ -21,7 +21,7 @@ from store import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('', views.index, name='index'),
     path('accounts/', include('registration.backends.default.urls')),
     path('store/', include("store.urls"), name="store"),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
