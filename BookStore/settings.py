@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'social_django',
     'bootstrap3',
     'bootstrap_themes',
-    'compressor',
     'store',
     'registration',
 ]
@@ -134,8 +133,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT =os.path.join(BASE_DIR, 'static/')
-COMPRESS_ENABLED = True
 
 # Registration
 ACCOUNT_ACTIVATION_DAYS = 7
