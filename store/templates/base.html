@@ -10,6 +10,7 @@
 
 {% block bootstrap3_extra_head %}
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="{% static 'base/css/style.css' %}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
@@ -38,7 +39,7 @@
                     <li class="hvr-curl-top-right"><a href="#contact">Contact</a></li>
                 </ul>
 
-                <div class="navbar-form pullright">
+                <div class="navbar-form pull-right">
                     {% if request.user.is_authenticated %}
                         Welcome, {% if request.user.first_name %}
                         {{request.user.first_name}}
@@ -46,7 +47,7 @@
                         {{request.user.username}}
                         {% endif %}! <a href="{% url 'auth_logout' %}">Logout</a>
                     {% else %}
-                       Welcome, mysterious person!<a href="{% url 'auth_login' %}">Log in</a> or <a href="{% url 'registration_register' %}">Register</a>
+                       Welcome, mysterious person!<a href="{% url 'auth_login' %}"> Log in</a> or <a href="{% url 'registration_register' %}">Register</a>
                     {% endif %}
                 </div>
 
@@ -60,7 +61,13 @@
             <div class="row">
             {% block body %}
             <div class="md-md-8 col-md-offset-2 col-sm-12 maincontent">
-                Welcome to the store!
+                <h4>Welcome to the store!</h4>
+                <br>
+                <br>
+                {% block content %}
+
+                {% endblock %}
+
             </div>
             {% endblock %}
             </div>
@@ -74,3 +81,5 @@
     </div>
 
 {% endblock %}
+<br>
+<br>

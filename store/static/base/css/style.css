@@ -19,7 +19,6 @@ a:hover {
 	filter: alpha(opacity=90);
 	-moz-opacity: 0.9;
 	-khtml-opacity: 0.9;
-	-khtml-opacity: 0.9;
 	opacity: 0.9;
     color: #e6e6e6;
 }
@@ -33,7 +32,18 @@ a:hover {
     padding-top: 8px;
     color: #e6e6e6;
 }
-
+.md-md-8.col-md-offset-2.col-sm-12.maincontent {
+    left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
+@media (min-width: 992px)
+.col-md-offset-2 {
+    margin-left: 0px;
+}
+.md-md-8.col-md-offset-2.col-sm-12.maincontent {
+    margin-left: 0;
+}
 /* Link Effect: Curl Top Right */
 .hvr-curl-top-right {
   display: inline-block;
@@ -47,21 +57,20 @@ a:hover {
   position: relative;
 }
 .hvr-curl-top-right:before {
-  pointer-events: none;
-  position: absolute;
-  content: '';
-  height: 0;
-  width: 0;
-  top: 0;
-  right: 0;
-  background: white;
-  /* IE9 */
-  background: linear-gradient(225deg, white 45%, #aaaaaa 50%, #cccccc 56%, white 80%);
-  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.4);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: width, height;
-  transition-property: width, height;
+    pointer-events: none;
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    top: 0;
+    right: 0;
+    /* background: white; */
+    /* background: linear-gradient(225deg, white 45%, #aaaaaa 50%, #cccccc 56%, white 80%); */
+    /* box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.4); */
+    /*-webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: width, height;
+    transition-property: width, height; */
 }
 .hvr-curl-top-right:hover:before, .hvr-curl-top-right:focus:before, .hvr-curl-top-right:active:before {
   width: 25px;
@@ -76,7 +85,7 @@ img.bg {
   /* Set rules to fill background */
   min-height: 100%;
   min-width: 1024px;
-   z-index : -1;
+
   /* Set up proportionate scaling */
   width: 100%;
   height: auto;
@@ -141,7 +150,11 @@ img.bg {
 
 /* Fix a couple things for mobile/low-res */
 
-
+@media screen and (max-width: 768px) {
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
   .maincontent {
     width: 80%;
     left: 10%;
