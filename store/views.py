@@ -19,3 +19,7 @@ def store(request):
         request.session['location'] = "Pune"
 
     return render(request, "store.html", context)
+
+
+def new(request):
+    pass
