@@ -1,4 +1,4 @@
-Django==2.1
+Django==2.2.10
 django-registration-redux==2.6
 pbr==5.4.0
 pyfiglet==0.8.post1
