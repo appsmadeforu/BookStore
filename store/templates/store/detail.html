@@ -5,15 +5,24 @@
 {% block body %}
 <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
     <div class="detail_book_display">
-        <img class="detail_book_img" src="{% static 'base/img/empty_cover.jpg' %}">
+        <img class="detail_book_img" src="{{ book.book_cover.url }}">
         <span class="detail_book_title">{{ book.title }}</span>
         <span class="detail_book_author">{{ book.author }}</span>
         <div class="detail_book_description">{{ book.description }}</div>
         <div class="detail_book_reviews_title">Reviews</div>
         <div class="detail_book_reviews">
-            {% if book.reviews %}
-                {% for review in book.reviews %}
-                    {{ review.text }}
+            {% if book.review_set.all %}
+                {% for review in book.review_set.all %}
+            <div class="detail_review">
+                <table>
+                    <tr>
+                        <td style="width:15%; text-align:left"><strong>{{ review.user }}</strong></td>
+                        <td style="width:40%; text-align:-webkit-left">{{ review.text }}</td>
+                        <td style="width:15%; text-align:left">{{ review.publish_date }}</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
                 {% endfor %}
             {% else %}
                 There are no reviews for this book yet!

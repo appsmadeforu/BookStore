@@ -191,6 +191,7 @@ img.bg {
 }
 .detail_book_img {
     margin-bottom: 20px;
+    width:250px;
 }
 .detail_book_title {
     font-size: 20px;
@@ -269,6 +270,7 @@ img.bg {
     width: 200px;
     display: inline-grid;
     text-align: center;
+    margin-right: 20px;
 }
 
 .storefront_book_title{
@@ -318,6 +320,15 @@ img.bg {
     display:block;
     font-weight: bold;
 }
+
+.detail_book_reviews {
+    text-align: center;
+    width: 70%;
+    padding: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Cart Styles */
 .cart_container {
 		display: block;

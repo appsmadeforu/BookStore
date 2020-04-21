@@ -1,26 +1,39 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
+from django.views import generic
 
-from .models import Book, BookOrder, Cart
+from .models import Book, BookOrder, Cart, Review, Genre
 
 
 # Create your views here.
-def index(request):
-    return render(request, 'template.html')
+class StoreView(generic.ListView):
+    template_name = "base.html"
+    context_object_name = 'books'  # your own name for the list as a template variable
+    queryset = Book.objects.all()
+    model = Book
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get the context
+        context = super(StoreView, self).get_context_data(**kwargs)
+        # Create any data and add it to the context
+        context['books'] = self.model.objects.all()
+        return context
 
 
-def store(request):
-    books = Book.objects.all()
-    context = {
-        'books': books,
-
-    }
-    return render(request, "base.html", context)
+# def store(request):
+#     books = Book.objects.all()
+#     context = {
+#         'books': books,
+#     }
+#     return render(request, "base.html", context)
 
 
 def book_details(request, book_id):
+    book = Book.objects.get(pk=book_id)
+    genre = Genre.objects.all()
     context = {
-        'book': Book.objects.get(pk=book_id),
+        'book': book,
+        'genres': genre
     }
     return render(request, 'store/detail.html', context)
 
