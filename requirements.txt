@@ -1,4 +1,4 @@
-Django==2.2.10
+Django
 django-registration-redux==2.6
 pbr==5.4.0
 pyfiglet==0.8.post1
@@ -12,7 +12,7 @@ virtualenvwrapper==4.8.4
 python-social-auth==0.2.7
 social-auth-core
 social-auth-app-django
-django-bootstrap3==5.4.0
+django-bootstrap3==12.0.3
 django-bootstrap-themes==3.1.2
 django-compressor==1.5
 Pillow
