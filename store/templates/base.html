@@ -1,0 +1,91 @@
+{% extends 'bootstrap3/bootstrap3.html' %}
+
+{% load staticfiles %}
+
+{% load bootstrap3 %}
+
+{% load bootstrap_themes %}
+
+{% bootstrap_styles theme='simplex' type='min.css' %}
+
+{% block bootstrap3_extra_head %}
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="{% static 'base/css/style.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block bootstrap3_title %}
+    {% block title %}
+        Welcome to the Mystery Books!
+    {% endblock %}
+{% endblock %}
+
+{% block bootstrap3_content %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"  data-toggle="visible" data-target="#navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="{% url 'index' %}" class="navbar-brand">Mystery Books</a>
+        </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="hvr-curl-top-right"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="hvr-curl-top-right"><a href="#about">About</a></li>
+                    <li class="hvr-curl-top-right"><a href="#contact">Contact</a></li>
+                    {% if request.user.is_authenticated %}<li class="hvr-curl-top-right"><a href="{% url 'cart' %}">My Shopping Cart</a></li>{% endif %}
+                </ul>
+
+                <div class="navbar-form pull-right">
+                    {% if request.user.is_authenticated %}
+                        Welcome, {% if request.user.first_name %}
+                        {{request.user.first_name}}
+                        {% else %}
+                        {{request.user.username}}
+                        {% endif %}! <a href="{% url 'auth_logout' %}">Logout</a>
+                    {% else %}
+                       Welcome, mysterious person!<a href="{% url 'auth_login' %}"> Log in</a> or <a href="{% url 'registration_register' %}">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <img src="{% static 'base/img/header_full.jpg' %}" class="bg"/>
+        <div class="parallax">
+            <div class="row">
+            {% block body %}
+            <div class="md-md-8 col-md-offset-2 col-sm-12 maincontent">
+                <div style="text-align: center"><h4>Welcome to the store!</h4><br><br></div>
+                {% for book in books %}
+                <div class="storefront_book_display">
+                    <a href="{% url 'book_details' book.id %}">
+                    <img style="width:200px" src="{{ book.book_cover.url }}">
+                    <span class="storefront_book_title"> {{ book.title }}</span>
+                    <span class="storefront_book_author">{{ book.author }}</span>
+                    </a>
+                    <span class="storefront_add_to_cart">
+                        <a href="{% url 'add_to_cart' book.id %}">[Add to Cart]</a>
+                    </span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center navbar footer">
+        <div class="col-md-12">
+            <p>2015 Mystery Books</p>
+        </div>
+    </div>
+
+{% endblock %}
+<br>
+<br>

@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Registration Complete</title>
-</head>
-<body>
-<h1> Thanks for registering you will receive an activation email shortly</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block body %}
+        <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 loginbox">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <div class="panel-title">Registration Complete</div>
+            </div>
+            <div style="padding-top:30px" class="panel-body" >
+              Thanks for registering with Mystery Books! You should receive an activation email shortly.
+            </div>
+          </div>
+        </div>
+{% endblock %}
