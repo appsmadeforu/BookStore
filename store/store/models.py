@@ -89,4 +89,3 @@ class BookOrder(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, )
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, )
     quantity = models.IntegerField()
-
